@@ -51,16 +51,21 @@ public class Voiture {
 	 * @return l'ensemble des garages visités par cette voiture
 	 */
 	public Set<Garage> garagesVisites() {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		Set<Garage> garagesVisites = new HashSet<>();
+		for (Stationnement stationnement : myStationnements) {
+			garagesVisites.add(stationnement.getGarage());
+		}
+		return garagesVisites;
 	}
 
 	/**
 	 * @return vrai si la voiture est dans un garage, faux sinon
 	 */
 	public boolean estDansUnGarage() {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+		for (Stationnement stationnement : myStationnements) {
+			if (stationnement.estEnCours()) return true;
+		}
+		return false;
 		// Vrai si le dernier stationnement est en cours
 	}
 
