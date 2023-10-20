@@ -42,7 +42,10 @@ public class Voiture {
 	 */
 	public void sortDuGarage() throws Exception {
 		for (Stationnement stationnement : myStationnements) {
-			if (stationnement.estEnCours()) stationnement.terminer(); return;
+			if (stationnement.estEnCours()) {
+				stationnement.terminer();
+				return;
+			}
 		}
 		throw new Exception("La voiture n'est pas dans un garage !");
 	}
